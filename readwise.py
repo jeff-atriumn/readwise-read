@@ -7,16 +7,13 @@ import re
 
 response = requests.get(
     url="https://readwise.io/api/v3/list/",
-    headers={"Authorization": "Token UemjhH0RW2DJqkFgOJWhYaCWe1Q0ZH7j6ffBJ0h7Hdxt4MBBb6"},
+    headers={"Authorization": "Token <token>"},
     params={
         "location": "shortlist"
     }
 )
 
-print(response.text)
 data = response.json()
-
-# print(data['results'][0]['summary'])
 
 to_read = []
 
