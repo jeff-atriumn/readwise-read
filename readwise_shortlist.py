@@ -3,6 +3,8 @@
 import requests
 import configparser
 import logging
+import re
+import webbrowser
 
 logger = logging.getLogger(__name__)
 
@@ -41,8 +43,9 @@ def process_response(response):
                 if match:
                     to_read.append(match.group(1))
                 else:
-                    print("Comments URL not found in the text.")
-                    
+                    # If not a Hacker News comment URL, add the article URL instead
+                    to_read.append(d['url'])
+
             for r in to_read[:5]:
                 webbrowser.open_new_tab(r)
         else:
