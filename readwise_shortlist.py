@@ -57,6 +57,6 @@ def process_response(response):
 
 if __name__ == "__main__":
     config = load_config('config.ini')
-    api_token = config.get('readwise', 'api_token')
-    response = get_readwise_shortlist(api_token)
+    readwise_api_token = config.get('config', 'readwise_api_token')
+    response = get_readwise_shortlist(readwise_api_token)
     process_response(response)
